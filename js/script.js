@@ -1,42 +1,86 @@
-const Person = function (name, surname, age) {
-    this.name = name;
-    this.surname = surname;
-    this.age = age;
-    this.showName = function () {
-        console.log(this.name)
+const person = {
+    name: 'John',
+    surname: 'Wick',
+    getFullName: function () {
+        console.log(`${this.name} ${this.surname}`);
+
+        const innerFunction = () => {
+            console.log(this);
+        }
+
+        innerFunction();
     }
 }
 
-class PersonUpdated {
-    constructor(name) {
-        this.name = name;
-    }
-
-    showName() {
-        console.log(this.name)
-    }
-}
-
-const testPerson = function (name, surname, age) {
-    return {
-        name: name,
-        surname: surname,
-        age: age
+const person2 = {
+    name: 'John',
+    surname: 'Wick',
+    getFullName: () => {
+        console.log('Text');
+        // console.log(`${this.name} ${this.surname}`);
+        // console.log(this);
     }
 }
 
-const person1 = new Person('Mike', 'Test', 12);
-person1.showName();
-// const person2 = new Person('Mike2', 'Test2', 22);
-// const person3 = new Person('Mike3', 'Test3', 32);
+const checkMonth = (monthNr) => {
+    switch (monthNr) {
+        case 1:
+            console.log('January');
+            break;
+        case 2:
+            console.log('February');
+            break;
+        case 3:
+            console.log('March');
+            break;
+        default:
+            console.log('Not found')
+    }
+}
+// checkMonth(12);
 
-// const person4 = testPerson('Mike4', 'Test4', 52);
 
-const person5 = new PersonUpdated('Mike4');
-person5.showName();
+const checkMonth2 = (monthNr) => {
+    switch (monthNr) {
+        case 1:
+            return 'January';
+        case 2:
+            return 'February';
+        case 3:
+            return 'March';
+        default:
+            return 'Not found';
+    }
+}
 
-console.log(person1);
-console.log(person2);
-console.log(person3);
-console.log(person4);
-console.log(person5);
+const testFunction = (number) => {
+    if (number === 1) {
+        return 'January';
+    } else if (number === 2) {
+        return 'February';
+    } else {
+        return 'Not found';
+    }
+}
+
+const func = () => {
+    return 'test';
+}
+
+const result = checkMonth2(3)
+console.log('🚀 ~ result', result)
+
+
+// const checkMonth = (monthNr) => {
+//     if (monthNr === 1) {
+//         console.log('January');
+//     } else if (monthNr === 2) {
+//         console.log('February');
+//     } else {
+//         console.log('Not found')
+//     }
+// }
+
+// person2.getFullName();
+// person.getFullName();
+
